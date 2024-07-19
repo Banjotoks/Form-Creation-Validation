@@ -53,8 +53,8 @@ document.addEventListener("DOMContentLoaded",function() {
         //Validation logic
         feedbackDiv.style.display = "block";
         if (isValid) {
-            feedback.textContent = "Registration successful!";
-            feedback.style.color = "#28a745";
+            feedbackDiv.textContent = "Registration successful!";
+            feedbackDiv.style.color = "#28a745";
             console.log("Form validation successful");
         }else {
             feedbackDiv.innerHtml = messages.join('<br>');
