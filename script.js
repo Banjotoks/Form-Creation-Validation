@@ -56,7 +56,8 @@ document.addEventListener("DOMContentLoaded",function() {
             feedbackDiv.textContent = "Registration successful!";
             feedbackDiv.style.color = "#28a745";
             console.log("Form validation successful");
-        }else {
+        }
+        else {
             feedbackDiv.innerHtml = messages.join('<br>');
             feedbackDiv.style.color = "#dc3545";
             console.log("Form validation failed");
