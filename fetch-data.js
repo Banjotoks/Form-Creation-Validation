@@ -1,39 +1,46 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM fully loaded and parsed');
-    displayUserList();
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM fully loaded and parsed");
+    fetchUserData();
 });
 
-function displayUserList() {
-    const userNames = [
-        "Leanne Graham",
-        "Ervin Howell",
-        "Clementine Bauch",
-        "Patricia Lebsack",
-        "Chelsey Dietrich",
-        "Mrs. Dennis Schulist",
-        "Kurtis Weissnat",
-        "Nicholas Runolfsdottir V",
-        "Glenna Reichert",
-        "Clementina DuBuque"
-    ];
 
+async function fetchUserData() {
+    const apiUrl = 'https://jsonplaceholder.typicode.com/users';
     const dataContainer = document.getElementById('api-data');
 
-    if (!dataContainer) {
+    if (!dataContainer) { 
         console.error('Data container element not found');
         return;
     }
 
-    dataContainer.innerHTML = ''; // Clear loading message
 
-    const userList = document.createElement('ul');
+    try {
+        const response = await fetch(apiUrl);
+        console.log('Fetching data from API')
 
-    userNames.forEach(userName => {
-        const listItem = document.createElement('li');
-        listItem.textContent = userName;
-        userList.appendChild(listItem);
-    });
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        const users = await response.json()
+        console.log("Data fetched successfully:", users);
 
-    dataContainer.appendChild(userList);
-    console.log('User list displayed');
-}
+        dataContainer.innerHTML = ''; // Clear loading message
+
+        constuserList = document.createElement('li');
+
+        users.forEach(user => {
+            const listItem = document.createElement('li');
+            listItem.textContent = user.name;
+            userList.appendChild(listItem);
+        });
+
+        dataContainer.appendChild(userList); // Append userList to dataContainer
+        console.log('User list displayed');
+
+    } 
+    catch (error) {
+        console.error('Failed to fetch user data:', error);
+        dataContainer.innerHTML = 'Failed to load user data.';
+    }
+
+} 
