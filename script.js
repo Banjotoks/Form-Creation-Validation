@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded",function() {
     console.log("DOM fully loaded and parsed");
 
-    const form = document.getElementById("registration-form");
-    const feedbackDiv = document.getElementById("form-feedback");
+    const form = document.getElementById('registration-form');
+    const feedbackDiv = document.getElementById('form-feedback');
 
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', function(event)  {
         event.preventDefault();
         console.log('Form submission prevented for validation');
 
@@ -17,11 +17,11 @@ document.addEventListener("DOMContentLoaded",function() {
         console.log("email");
         console.log("password");
 
-        let isValid = true
+        let isValid = true;
         const messages = [];
 
         //Username validation
-        if (username.length<3) {
+        if (username.length < 3) {
             isValid = false;
             messages.push("Username length must be atleast three characters and above.");
             console.log("Username validation failed");
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded",function() {
         //Email validation
         if (!email.includes('@') || !email.includes('.')) {
             isValid = false;
-            messages.push("Password must be atleast 8 characters long.");
+            messages.push('Email must contain "@" and "." characters.');
             
             console.log("Email validation failed");
 
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded",function() {
         }
 
         //Password validation
-        if (password.length <8) {
+        if (password.length < 8) {
             isValid = false;
             messages.push("Password length must be atleast 8 characters long.");  
             console.log("Password validation failed");
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded",function() {
         else {
             feedbackDiv.innerHtml = messages.join('<br>');
             feedbackDiv.style.color = "#dc3545";
-            console.log("Form validation failed");
+            console.log("Form validation failed"); 
         }
 
 
