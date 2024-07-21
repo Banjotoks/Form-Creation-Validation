@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded",function() {
+document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
     const form = document.getElementById('registration-form');
