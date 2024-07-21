@@ -36,13 +36,15 @@ document.addEventListener('DOMContentLoaded', function() {
         feedbackDiv.style.display = "block"; 
         
         if (isValid) {
-            feedbackDiv.textContent = "Registration successful!";
-            feedbackDiv.style.color = "#28a745";
-            
+            feedbackDiv.textContent = 'Registration successful!';
+            feedbackDiv.style.color = '#28a745';
+            feedbackDiv.style.backgroundColor = '#d4edda';
+            feedbackDiv.style.borderColor = '#c3e6cb';
         } else {
-            feedbackDiv.innerHtml = messages.join('<br>');
-            feedbackDiv.style.color = "#dc3545";
-            
+            feedbackDiv.innerHTML = messages.join('<br>');
+            feedbackDiv.style.color = '#dc3545';
+            feedbackDiv.style.backgroundColor = '#f8d7da';
+            feedbackDiv.style.borderColor = '#f5c6cb';
         }
     });
 });
